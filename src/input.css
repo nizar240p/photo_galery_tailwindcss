@@ -5,3 +5,7 @@
 body {
     font-family: 'Inter', sans-serif;
 }
+
+.image-hover-animation {
+    @apply group-hover:bg-primary group-hover:h-full;
+}

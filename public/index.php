@@ -1,3 +1,7 @@
+<?php
+$img = array('anya','bleach','bluelock','bocchi','csm','deku','iamatomic','mob','sugoidekai');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +13,7 @@
 </head>
 <body>
     <!-- Hero Section Start -->
-    <section id="home" class="pt-36 pb-32 bg-slate-100">
+    <section id="home" class="pt-36 pb-32 bg-slate-300">
         <div class="container">
             
         </div>
@@ -20,17 +24,20 @@
     <section id="coba" class="pt-24 pb-32">
         <div class="container">
             <div class="flex flex-wrap">
-                <?php for($i = 0; $i < 16; $i++): ?>
+                <?php for($x = 0; $x < 2; $x++): ?>
+                <?php for($i = 0; $i < 9; $i++): ?>
                 <div class="w-full p-2 md:w-1/2 lg:w-1/3 xl:w-1/4">
-                    <div class="rounded-xl shadow-lg overflow-hidden">
-                        <div class="h-[300px] overflow-hidden">
-                            <img src="img/anime/anya.webp" alt="" class="w-full">
+                    <div class="rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl h-full">
+                        <div class="h-[300px] overflow-hidden group-hover:h-0 transition ease-in-out">
+                            <img src="img/anime/<?=$img[$i]?>.webp" loading="lazy" alt="<?=$img[$i]?>" class="w-full">
                         </div>
-                        <div class="pt-2 pb-4 px-4">
-                            <h3 class="font-bold text-lg text-slate-800">SPY X FAMILY</h3>
+                        <div class="pt-2 pb-4 px-4 image-hover-animation transition ease-in-out">
+                            <h3 class="font-bold text-lg text-slate-800 capitalize group-hover:text-white truncate"><?=$img[$i]?></h3>
+                            <p class="hidden group-hover:block group-hover:text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda harum officiis accusantium.</p>
                         </div>
                     </div>
                 </div>
+                <?php endfor; ?>
                 <?php endfor; ?>
             </div>
         </div>
@@ -38,7 +45,7 @@
     <!-- Main Galery End -->
 
     <!-- Footer Start -->
-    <footer class="bg-slate-800 pt-18 pb-12">
+    <footer class="bg-slate-800 pt-20 pb-12">
         <div class="container">
             <div class="w-full pt-10 border-t border-slate-700">
                 <div class="flex items-center justify-center mb-5">
