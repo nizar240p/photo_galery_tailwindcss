@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    font-family: 'Inter', sans-serif;
+* {
+    @apply box-border
 }
 
-.image-hover-animation {
-    @apply group-hover:bg-primary group-hover:h-full;
+body {
+    font-family: 'Inter', sans-serif;
 }

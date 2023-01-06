@@ -1,5 +1,6 @@
 <?php
 $img = array('anya','bleach','bluelock','bocchi','csm','deku','iamatomic','mob','sugoidekai');
+$alam = array('mountaint','beach','swamp','greenfield','paris','japan','italia','spinx','sea');
 ?>
 
 <!DOCTYPE html>
@@ -9,13 +10,20 @@ $img = array('anya','bleach','bluelock','bocchi','csm','deku','iamatomic','mob',
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo Galery Tailwind CSS</title>
+    <link rel="preload" id="image" href="img/anime/anya.webp">
+    <link rel="preload" id="image" href="img/anime/bleach.webp">
+    <link rel="preload" id="image" href="img/anime/bluelock.webp">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Hero Section Start -->
-    <section id="home" class="pt-36 pb-32 bg-slate-300">
+    <section id="home" class="bg-slate-300">
         <div class="container">
-            
+            <div class="flex justify-center items-center h-screen px-4">
+                <div class="w-full">
+                    <h1 class="block font-bold text-slate-800 text-4xl mt-1">Butuh Rekomendasi Tempat Untuk Liburan?</h1>
+                </div>
+            </div>
         </div>
     </section>
     <!-- Hero Section End -->
@@ -23,17 +31,37 @@ $img = array('anya','bleach','bluelock','bocchi','csm','deku','iamatomic','mob',
     <!-- Main Galery Start -->
     <section id="coba" class="pt-24 pb-32">
         <div class="container">
+            <div class="flex flex-wrap justify-center">
+                <?php for($i = 0; $i < 18; $i++): ?>
+                <div class="w-full p-2 md:w-1/2 lg:w-1/3 xl:w-1/4">
+                    <div class="rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl h-full">
+                        <div class="relative h-[300px]">
+                            <img src="https://source.unsplash.com/720x480?<?=$alam[rand(0,8)]?>" alt="Avatar" class="w-full h-full object-cover" loading="lazy">
+                            <div class="overflow-scroll p-4 absolute -bottom-full left-0 w-full h-0 flex flex-col justify-start items-start bg-primary group-hover:h-full duration-1000 group-hover:bottom-0 opacity-0 group-hover:opacity-100">
+                                <div class="font-bold text-lg text-white capitalize"><?=$alam[rand(0,8)]?></div>
+                                <div class="text-white text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque ipsum temporibus magnam quidem rem deleniti ducimus! Soluta fuga et est ipsam, aperiam, sit deleniti iste quaerat incidunt veritatis cum recusandae?</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php endfor; ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section id="coba" class="pt-24 pb-32">
+        <div class="container">
             <div class="flex flex-wrap">
                 <?php for($x = 0; $x < 2; $x++): ?>
                 <?php for($i = 0; $i < 9; $i++): ?>
                 <div class="w-full p-2 md:w-1/2 lg:w-1/3 xl:w-1/4">
                     <div class="rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl h-full">
-                        <div class="h-[300px] overflow-hidden group-hover:h-0 transition ease-in-out">
-                            <img src="img/anime/<?=$img[$i]?>.webp" loading="lazy" alt="<?=$img[$i]?>" class="w-full">
-                        </div>
-                        <div class="pt-2 pb-4 px-4 image-hover-animation transition ease-in-out">
-                            <h3 class="font-bold text-lg text-slate-800 capitalize group-hover:text-white truncate"><?=$img[$i]?></h3>
-                            <p class="hidden group-hover:block group-hover:text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda harum officiis accusantium.</p>
+                        <div class="relative h-[300px] group">
+                            <img src="img/anime/<?=$img[$i]?>.webp" alt="Avatar" class="w-full object-cover" loading="lazy">
+                            <div class="py-4 px-4 absolute -bottom-full left-0 w-full h-0 flex flex-col justify-start items-start bg-primary group-hover:h-full duration-1000 group-hover:bottom-0">
+                                <div class="font-bold text-lg text-white capitalize"><?=$img[$i]?></div>
+                                <div class="text-white text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque ipsum temporibus magnam quidem rem deleniti ducimus! Soluta fuga et est ipsam, aperiam, sit deleniti iste quaerat incidunt veritatis cum recusandae?</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -41,7 +69,7 @@ $img = array('anya','bleach','bluelock','bocchi','csm','deku','iamatomic','mob',
                 <?php endfor; ?>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Main Galery End -->
 
     <!-- Footer Start -->
