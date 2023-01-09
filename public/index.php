@@ -1,6 +1,7 @@
 <?php
 $img = array('anya','bleach','bluelock','bocchi','csm','deku','iamatomic','mob','sugoidekai');
 $alam = array('mountaint','beach','swamp','greenfield','paris','japan','italia','spinx','sea');
+$win = array('100.jpg','101.png','102.jpg','103.png','104.jpg');
 ?>
 
 <!DOCTYPE html>
@@ -14,22 +15,28 @@ $alam = array('mountaint','beach','swamp','greenfield','paris','japan','italia',
     <link rel="preload" id="image" href="img/anime/bleach.webp">
     <link rel="preload" id="image" href="img/anime/bluelock.webp">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .header {
+            background-color: gray;
+            background-image: url('img/wisata/img100.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
-<body>
+<body onload="startup()">
     <!-- Hero Section Start -->
-    <section id="home" class="bg-slate-300">
+    <header id="header" class="h-screen bg-slate-200 relative overflow-hidden bg-no-repeat bg-cover bg-fixed bg-center duration-700" style="background-image: url('img/wisata/img100.jpg');">
         <div class="container">
-            <div class="flex justify-center items-center h-screen px-4">
-                <div class="w-full">
-                    <h1 class="block font-bold text-slate-800 text-4xl mt-1">Butuh Rekomendasi Tempat Untuk Liburan?</h1>
-                </div>
-            </div>
+            <h1 class="font-bold text-white bg-slate-900 px-4 py-2 text-4xl z-50 absolute bottom-1/2 duration-1000 opacity-0 min-w-[80%] left-full xl:min-w-max">Butuh Rekomendasi Tempat Untuk Liburan?</h1>
         </div>
-    </section>
+    </header>
     <!-- Hero Section End -->
 
     <!-- Main Galery Start -->
-    <section id="coba" class="pt-24 pb-32">
+    <!-- <section id="main" class="pt-24 pb-32">
         <div class="container">
             <div class="flex flex-wrap justify-center">
                 <?php for($i = 0; $i < 18; $i++): ?>
@@ -37,9 +44,10 @@ $alam = array('mountaint','beach','swamp','greenfield','paris','japan','italia',
                     <div class="rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl h-full">
                         <div class="relative h-[300px]">
                             <img src="https://source.unsplash.com/720x480?<?=$alam[rand(0,8)]?>" alt="Avatar" class="w-full h-full object-cover" loading="lazy">
-                            <div class="overflow-scroll p-4 absolute -bottom-full left-0 w-full h-0 flex flex-col justify-start items-start bg-primary group-hover:h-full duration-1000 group-hover:bottom-0 opacity-0 group-hover:opacity-100">
+                            <div class="overflow-y-scroll p-4 absolute -bottom-full left-0 w-full h-0 flex flex-col justify-start items-start bg-primary group-hover:h-full duration-1000 group-hover:bottom-0 opacity-0 group-hover:opacity-100">
                                 <div class="font-bold text-lg text-white capitalize"><?=$alam[rand(0,8)]?></div>
                                 <div class="text-white text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque ipsum temporibus magnam quidem rem deleniti ducimus! Soluta fuga et est ipsam, aperiam, sit deleniti iste quaerat incidunt veritatis cum recusandae?</div>
+                                <div class="text-white text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque ipsum temporibus magnam quidem rem deleniti ducimus! Soluta fuga et est ipsam, aperiam, sit deleniti iste quaerat incidunt veritatis cum recusandae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis sequi dolorum, cum, velit, repellendus quisquam non ipsam sit debitis inventore unde suscipit voluptatibus rerum iure porro. Minima, eum voluptates commodi optio a magnam adipisci quis dolor cupiditate tenetur nam doloremque, molestias accusantium ad deleniti nesciunt ullam quo est. Reiciendis suscipit laboriosam dolore explicabo cupiditate vitae eos hic quibusdam obcaecati amet dolor consequuntur ratione aperiam nesciunt harum reprehenderit unde quis impedit, alias non eius veniam ad. Iure molestias deleniti voluptas voluptatibus quasi, impedit eos numquam iste accusamus ducimus non minima blanditiis rem beatae facere quisquam magnam autem ea veritatis nemo saepe.</div>
                             </div>
                         </div>
                     </div>
@@ -47,20 +55,44 @@ $alam = array('mountaint','beach','swamp','greenfield','paris','japan','italia',
                 <?php endfor; ?>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <!-- <section id="coba" class="pt-24 pb-32">
+    <section id="main" class="pt-36 pb-32 ">
         <div class="container">
             <div class="flex flex-wrap">
                 <?php for($x = 0; $x < 2; $x++): ?>
-                <?php for($i = 0; $i < 9; $i++): ?>
+                <?php for($i = 0; $i < count($win); $i++): ?>
+                <div class="w-full p-2 md:w-1/2 lg:w-1/3 xl:w-1/4">
+                    <div onmouseover="bg('img<?=$win[$i]?>')" class="rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl h-full">
+                        <div class="relative h-60">
+                            <img src="img/wisata/img<?=$win[$i]?>" alt="Avatar" class="w-full h-full object-cover" loading="lazy">
+                            <div class="overflow-y-auto p-4 absolute -bottom-full left-0 w-full h-0 flex flex-col justify-start items-start bg-primary group-hover:h-full duration-1000 group-hover:bottom-0 opacity-0 group-hover:opacity-100">
+                                <div class="font-bold text-lg text-white capitalize">img<?=$win[$i]?></div>
+                                <div class="text-white text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque ipsum temporibus magnam quidem rem deleniti ducimus! Soluta fuga et est ipsam, aperiam, sit deleniti iste quaerat incidunt veritatis cum recusandae?</div>
+                                <div class="text-white text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque ipsum temporibus magnam quidem rem deleniti ducimus! Soluta fuga et est ipsam, aperiam, sit deleniti iste quaerat incidunt veritatis cum recusandae? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel tempora magni dolore nemo reiciendis ad officiis itaque debitis rem sint sunt quis a fugiat tempore sit et iste laudantium similique, eius iure! Nemo obcaecati eveniet ratione, maiores quasi at iste animi recusandae hic enim? Deleniti totam ipsum aut itaque nobis atque aperiam earum accusantium corrupti quisquam error quibusdam repudiandae voluptas culpa beatae, facilis non soluta tempora modi architecto enim. Consequatur amet facere porro atque laborum saepe quae ipsa delectus possimus ipsam, culpa consequuntur itaque nulla provident impedit. Molestiae architecto nostrum, minima ex adipisci, sequi eligendi numquam voluptates eveniet doloribus excepturi.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php endfor; ?>
+                <?php endfor; ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section id="main" class="pt-24 pb-32">
+        <div class="container">
+            <div class="flex flex-wrap">
+                <?php for($x = 0; $x < 2; $x++): ?>
+                <?php for($i = 0; $i < count($img); $i++): ?>
                 <div class="w-full p-2 md:w-1/2 lg:w-1/3 xl:w-1/4">
                     <div class="rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl h-full">
-                        <div class="relative h-[300px] group">
-                            <img src="img/anime/<?=$img[$i]?>.webp" alt="Avatar" class="w-full object-cover" loading="lazy">
-                            <div class="py-4 px-4 absolute -bottom-full left-0 w-full h-0 flex flex-col justify-start items-start bg-primary group-hover:h-full duration-1000 group-hover:bottom-0">
+                        <div class="relative h-[300px]">
+                            <img src="img/anime/<?=$img[$i]?>.webp" alt="Avatar" class="w-full h-full object-cover" loading="lazy">
+                            <div class="overflow-y-auto p-4 absolute -bottom-full left-0 w-full h-0 flex flex-col justify-start items-start bg-primary group-hover:h-full duration-1000 group-hover:bottom-0 opacity-0 group-hover:opacity-100">
                                 <div class="font-bold text-lg text-white capitalize"><?=$img[$i]?></div>
                                 <div class="text-white text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque ipsum temporibus magnam quidem rem deleniti ducimus! Soluta fuga et est ipsam, aperiam, sit deleniti iste quaerat incidunt veritatis cum recusandae?</div>
+                                <div class="text-white text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque ipsum temporibus magnam quidem rem deleniti ducimus! Soluta fuga et est ipsam, aperiam, sit deleniti iste quaerat incidunt veritatis cum recusandae? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel tempora magni dolore nemo reiciendis ad officiis itaque debitis rem sint sunt quis a fugiat tempore sit et iste laudantium similique, eius iure! Nemo obcaecati eveniet ratione, maiores quasi at iste animi recusandae hic enim? Deleniti totam ipsum aut itaque nobis atque aperiam earum accusantium corrupti quisquam error quibusdam repudiandae voluptas culpa beatae, facilis non soluta tempora modi architecto enim. Consequatur amet facere porro atque laborum saepe quae ipsa delectus possimus ipsam, culpa consequuntur itaque nulla provident impedit. Molestiae architecto nostrum, minima ex adipisci, sequi eligendi numquam voluptates eveniet doloribus excepturi.</div>
                             </div>
                         </div>
                     </div>
@@ -118,5 +150,37 @@ $alam = array('mountaint','beach','swamp','greenfield','paris','japan','italia',
         </div>
     </footer>
     <!-- Footer End -->
+
+    <script>
+        function startup(){
+            const h1 = document.querySelector('#header .container h1')
+
+            h1.classList.add('opacity-100')
+            h1.classList.remove('left-full')
+            h1.classList.add('left-[15%]')
+        }
+
+        window.onscroll = function(){
+            const h1 = document.querySelector('#header .container h1')
+            const header = document.querySelector('header')
+            const fixedNav = header.offsetTop
+
+            if(window.pageYOffset > fixedNav){
+                h1.classList.remove('opacity-100')
+                h1.classList.add('left-full')
+                h1.classList.remove('left-[15%]')
+            }else{
+                h1.classList.add('opacity-100')
+                h1.classList.remove('left-full')
+                h1.classList.add('left-[15%]')
+            }
+        }
+
+        function bg(x){
+            const bg = document.querySelector('#header')
+
+            bg.style.backgroundImage = "url('img/wisata/" + x + "')"
+        }
+    </script>
 </body>
 </html>
